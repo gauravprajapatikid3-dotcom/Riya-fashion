@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>RIYA FASHION — Luxury. Casual. Ethnic. One Wardrobe.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF8EC;
+    --paper:#FFFCF6;
+    --ink:#1B1F5C;
+    --ink-soft:#3A3E7A;
+    --marigold:#FF7A1A;
+    --rani:#C81E6D;
+    --emerald:#0F8B5F;
+    --gold:#D4A017;
+    --line: rgba(27,31,92,0.14);
+    --shadow: 0 20px 50px -20px rgba(27,31,92,0.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Sora', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .eyebrow{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:0.72rem;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1220px; margin:0 auto; padding:0 32px;}
+  ::selection{background:var(--marigold); color:var(--paper);}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--ink); outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,248,236,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px;
+    max-width:1220px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.35rem;
+    letter-spacing:0.01em;
+  }
+  .logo span{color:var(--rani); font-style:italic; font-weight:500;}
+  .nav-links{
+    display:flex; gap:36px; align-items:center;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:0.85rem;
+    font-weight:500;
+    letter-spacing:0.02em;
+  }
+  .nav-links a{position:relative; padding:4px 0; color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-2px; height:2px; width:0;
+    background:var(--marigold); transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--ink); color:var(--paper);
+    padding:11px 22px; border-radius:100px;
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:0.82rem;
+    letter-spacing:0.02em;
+    transition:transform 0.2s ease, background 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--rani); transform:translateY(-1px);}
+  .nav-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .nav-toggle span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; transition:0.25s;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:90px 32px 60px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1220px; margin:0 auto;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px;
+    align-items:center;
+  }
+  .hero-blob{
+    position:absolute; border-radius:50%; filter:blur(2px); opacity:0.85;
+  }
+  .hero-eyebrow{color:var(--rani); margin-bottom:18px; display:flex; align-items:center; gap:10px;}
+  .hero-eyebrow::before{content:''; width:28px; height:2px; background:var(--rani); display:inline-block;}
+  h1.hero-title{
+    font-size:clamp(2.6rem, 5.2vw, 4.4rem);
+    line-height:1.02;
+    margin-bottom:24px;
+  }
+  h1.hero-title em{
+    font-style:italic; font-weight:500; color:var(--marigold);
+  }
+  h1.hero-title .u2{color:var(--emerald); font-style:italic; font-weight:500;}
+  .hero-sub{
+    font-size:1.08rem; color:var(--ink-soft); max-width:480px; margin-bottom:34px;
+  }
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:44px;}
+  .btn-primary{
+    background:var(--marigold); color:var(--paper);
+    padding:15px 30px; border-radius:100px;
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:0.9rem;
+    box-shadow:0 14px 30px -12px rgba(255,122,26,0.55);
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+    border:none; cursor:pointer; display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 18px 34px -12px rgba(255,122,26,0.7);}
+  .btn-ghost{
+    padding:15px 26px; border-radius:100px; border:1.5px solid var(--ink);
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:0.9rem;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .btn-ghost:hover{background:var(--ink); color:var(--paper);}
+  .hero-stats{display:flex; gap:40px;}
+  .hero-stats div strong{display:block; font-family:'Fraunces',serif; font-size:1.7rem; color:var(--ink);}
+  .hero-stats div span{font-size:0.78rem; color:var(--ink-soft);}
+
+  .hero-visual{
+    position:relative; height:520px;
+  }
+  .swatch{
+    position:absolute; border-radius:28px; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:22px; overflow:hidden;
+  }
+  .swatch .tag{
+    font-family:'Space Grotesk',sans-serif; font-size:0.68rem; font-weight:600;
+    letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.92);
+    margin-bottom:4px;
+  }
+  .swatch .name{font-family:'Fraunces',serif; font-weight:600; color:#fff; font-size:1.15rem;}
+  .swatch-luxury{
+    width:230px; height:300px; top:0; right:40px;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(212,160,23,0.5), transparent 55%),
+      linear-gradient(160deg, var(--ink) 0%, #262b6e 100%);
+    z-index:3;
+  }
+  .swatch-casual{
+    width:210px; height:250px; bottom:20px; right:170px;
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.12) 0 10px, transparent 10px 20px),
+      linear-gradient(160deg, var(--marigold), #ff9a4d);
+    z-index:2;
+  }
+  .swatch-ethnic{
+    width:190px; height:230px; bottom:70px; left:0;
+    background:
+      radial-gradient(circle at 80% 15%, rgba(255,255,255,0.25), transparent 40%),
+      linear-gradient(160deg, var(--rani), #e0447f);
+    z-index:1;
+  }
+  .swatch-ethnic::before, .swatch-casual::before, .swatch-luxury::before{
+    content:''; position:absolute; inset:0; opacity:0.5;
+    background-image:radial-gradient(rgba(255,255,255,0.35) 1.5px, transparent 1.5px);
+    background-size:16px 16px;
+  }
+
+  /* ---------- WOVEN DIVIDER ---------- */
+  .divider{ width:100%; display:block; margin:0; }
+  .divider svg{width:100%; height:auto; display:block;}
+
+  /* ---------- THREE THREADS ---------- */
+  section.threads{padding:90px 32px 100px; background:var(--paper);}
+  .threads-head{max-width:640px; margin:0 auto 56px; text-align:center;}
+  .threads-head .eyebrow{color:var(--emerald); justify-content:center; display:flex; gap:10px; margin-bottom:14px;}
+  .threads-head .eyebrow::before, .threads-head .eyebrow::after{content:''; width:28px; height:2px; background:var(--emerald); align-self:center;}
+  .threads-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
+  .thread-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+    max-width:1220px; margin:0 auto;
+  }
+  .thread-card{
+    border-radius:26px; padding:36px 28px 32px; position:relative;
+    min-height:380px; display:flex; flex-direction:column; justify-content:flex-end;
+    color:#fff; overflow:hidden;
+    transition:transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .thread-card:hover{transform:translateY(-8px); box-shadow:var(--shadow);}
+  .thread-card .num{
+    position:absolute; top:26px; left:28px;
+    font-family:'Fraunces',serif; font-style:italic; font-size:0.95rem;
+    color:rgba(255,255,255,0.75);
+  }
+  .thread-card h3{color:#fff; font-size:1.6rem; margin-bottom:10px;}
+  .thread-card p{color:rgba(255,255,255,0.85); font-size:0.92rem; max-width:280px;}
+  .thread-luxury{background:linear-gradient(150deg,#22265c 0%, var(--ink) 60%, #33397a 100%);}
+  .thread-luxury::before{
+    content:''; position:absolute; inset:0;
+    background-image:radial-gradient(rgba(212,160,23,0.35) 1px, transparent 1px);
+    background-size:20px 20px; opacity:0.6;
+  }
+  .thread-casual{background:linear-gradient(150deg, #ff8a2e 0%, var(--marigold) 55%, #e0620a 100%);}
+  .thread-casual::before{
+    content:''; position:absolute; inset:0;
+    background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0.14) 0 12px, transparent 12px 24px);
+  }
+  .thread-ethnic{background:linear-gradient(150deg, #d94f8c 0%, var(--rani) 55%, #a11458 100%);}
+  .thread-ethnic::before{
+    content:''; position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.22) 0 6px, transparent 7px),
+      radial-gradient(circle at 70% 65%, rgba(255,255,255,0.16) 0 8px, transparent 9px);
+    background-size:60px 60px;
+  }
+  .thread-card .tag-pill{
+    align-self:flex-start;
+    font-family:'Space Grotesk',sans-serif; font-size:0.68rem; font-weight:600;
+    letter-spacing:0.12em; text-transform:uppercase;
+    background:rgba(255,255,255,0.18); padding:6px 14px; border-radius:100px;
+    margin-bottom:14px; position:relative; z-index:1;
+  }
+  .thread-card h3, .thread-card p{position:relative; z-index:1;}
+
+  /* ---------- LOOKBOOK ---------- */
+  section.lookbook{padding:90px 0 100px;}
+  .lookbook-head{max-width:1220px; margin:0 auto 40px; padding:0 32px; display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap;}
+  .lookbook-head .eyebrow{color:var(--marigold); margin-bottom:12px; display:flex; gap:10px;}
+  .lookbook-head .eyebrow::before{content:''; width:28px; height:2px; background:var(--marigold); align-self:center;}
+  .lookbook-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem); max-width:480px;}
+  .lookbook-scroll{
+    display:flex; gap:22px; overflow-x:auto; padding:8px 32px 20px;
+    scroll-snap-type:x mandatory;
+  }
+  .lookbook-scroll::-webkit-scrollbar{height:6px;}
+  .lookbook-scroll::-webkit-scrollbar-thumb{background:var(--line); border-radius:10px;}
+  .look-card{
+    min-width:260px; scroll-snap-align:start;
+    border-radius:22px; overflow:hidden; background:var(--paper);
+    border:1px solid var(--line);
+    transition:transform 0.3s ease;
+  }
+  .look-card:hover{transform:translateY(-6px);}
+  .look-photo{height:320px; position:relative;}
+  .look-photo::after{
+    content:''; position:absolute; inset:0;
+    background-image:radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px);
+    background-size:14px 14px;
+  }
+  .look-1 .look-photo{background:linear-gradient(165deg,#2b2f6b,var(--ink) 70%);}
+  .look-2 .look-photo{background:linear-gradient(165deg,#ffab5c,var(--marigold) 70%);}
+  .look-3 .look-photo{background:linear-gradient(165deg,#e0669a,var(--rani) 70%);}
+  .look-4 .look-photo{background:linear-gradient(165deg,#3fae83,var(--emerald) 70%);}
+  .look-info{padding:18px 20px 22px; display:flex; justify-content:space-between; align-items:flex-start;}
+  .look-info .cat{font-family:'Space Grotesk',sans-serif; font-size:0.66rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:4px;}
+  .look-info h4{font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem;}
+  .look-info .price{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.92rem; color:var(--ink);}
+
+  /* ---------- STORY ---------- */
+  section.story{padding:40px 32px 110px;}
+  .story-inner{
+    max-width:1220px; margin:0 auto;
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;
+  }
+  .story-art{
+    height:460px; border-radius:28px; position:relative; overflow:hidden;
+    background:linear-gradient(150deg, var(--rani) 0%, var(--marigold) 50%, var(--emerald) 100%);
+  }
+  .story-art::before{
+    content:''; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.10) 0 3px, transparent 3px 22px);
+  }
+  .story-art .quote{
+    position:absolute; bottom:28px; left:28px; right:28px;
+    color:#fff; font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+    font-size:1.3rem; line-height:1.3;
+  }
+  .story-text .eyebrow{color:var(--rani); margin-bottom:16px; display:flex; gap:10px;}
+  .story-text .eyebrow::before{content:''; width:28px; height:2px; background:var(--rani); align-self:center;}
+  .story-text h2{font-size:clamp(1.9rem,3.2vw,2.5rem); margin-bottom:20px;}
+  .story-text p{color:var(--ink-soft); margin-bottom:16px; max-width:520px;}
+  .story-list{list-style:none; margin-top:26px; display:grid; gap:14px;}
+  .story-list li{display:flex; gap:14px; align-items:flex-start; font-size:0.95rem; color:var(--ink);}
+  .story-list .dot{
+    width:10px; height:10px; border-radius:50%; margin-top:6px; flex-shrink:0;
+  }
+  .story-list li:nth-child(1) .dot{background:var(--ink);}
+  .story-list li:nth-child(2) .dot{background:var(--marigold);}
+  .story-list li:nth-child(3) .dot{background:var(--rani);}
+
+  /* ---------- GALLERY ---------- */
+  section.gallery{padding:0 32px 110px;}
+  .gallery-head{max-width:1220px; margin:0 auto 34px; text-align:center;}
+  .gallery-head .eyebrow{color:var(--emerald); justify-content:center; display:flex; gap:10px; margin-bottom:12px;}
+  .gallery-head .eyebrow::before, .gallery-head .eyebrow::after{content:''; width:28px; height:2px; background:var(--emerald); align-self:center;}
+  .gallery-grid{
+    max-width:1220px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(6, 1fr); grid-auto-rows:110px; gap:14px;
+  }
+  .g-tile{border-radius:16px; position:relative; overflow:hidden;}
+  .g-tile::after{content:''; position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.28) 1px, transparent 1px); background-size:12px 12px;}
+  .g1{grid-column:span 2; grid-row:span 2; background:linear-gradient(160deg,#2b2f6b,var(--ink));}
+  .g2{grid-column:span 2; background:linear-gradient(160deg,var(--marigold),#ff9a4d);}
+  .g3{grid-column:span 2; background:linear-gradient(160deg,var(--rani),#e0669a);}
+  .g4{grid-column:span 2; background:linear-gradient(160deg,var(--emerald),#2fbf8f);}
+  .g5{grid-column:span 2; grid-row:span 2; background:linear-gradient(160deg,#d4a017,#f0c14b);}
+  .g6{grid-column:span 2; background:linear-gradient(160deg,#33397a,#4c53a8);}
+
+  /* ---------- NEWSLETTER ---------- */
+  section.news{padding:80px 32px 100px;}
+  .news-box{
+    max-width:840px; margin:0 auto; text-align:center;
+    background:var(--ink); color:var(--paper);
+    border-radius:32px; padding:64px 40px; position:relative; overflow:hidden;
+  }
+  .news-box::before{
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,122,26,0.35), transparent 70%);
+    top:-140px; right:-100px;
+  }
+  .news-box::after{
+    content:''; position:absolute; width:260px; height:260px; border-radius:50%;
+    background:radial-gradient(circle, rgba(200,30,109,0.32), transparent 70%);
+    bottom:-120px; left:-80px;
+  }
+  .news-box h2{color:#fff; font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:14px; position:relative;}
+  .news-box p{color:rgba(255,255,255,0.75); max-width:480px; margin:0 auto 30px; position:relative;}
+  .news-form{display:flex; gap:12px; max-width:420px; margin:0 auto; position:relative; flex-wrap:wrap; justify-content:center;}
+  .news-form input{
+    flex:1; min-width:220px; padding:15px 20px; border-radius:100px; border:none;
+    font-family:'Sora',sans-serif; font-size:0.92rem;
+    background:rgba(255,255,255,0.12); color:#fff;
+    border:1px solid rgba(255,255,255,0.25);
+  }
+  .news-form input::placeholder{color:rgba(255,255,255,0.55);}
+  .news-form button{
+    background:var(--marigold); color:#fff; border:none; padding:15px 26px; border-radius:100px;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.9rem; cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  .news-form button:hover{background:#ff8e3d;}
+  .news-note{font-size:0.78rem; color:rgba(255,255,255,0.5); margin-top:14px; position:relative;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--paper); border-top:1px solid var(--line);
+    padding:64px 32px 32px;
+  }
+  .footer-inner{
+    max-width:1220px; margin:0 auto;
+    display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr 1fr; gap:32px;
+  }
+  .footer-brand .logo{margin-bottom:14px;}
+  .footer-brand p{color:var(--ink-soft); font-size:0.9rem; max-width:280px; margin-bottom:20px;}
+  .social-row{display:flex; gap:12px;}
+  .social-row a{
+    width:38px; height:38px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; font-size:0.8rem;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .social-row a:hover{background:var(--ink); color:#fff;}
+  .footer-col h5{font-family:'Space Grotesk',sans-serif; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px; color:var(--ink-soft);}
+  .footer-col ul{list-style:none; display:grid; gap:10px;}
+  .footer-col a{font-size:0.92rem; color:var(--ink);}
+  .footer-col a:hover{color:var(--rani);}
+  .footer-bottom{
+    max-width:1220px; margin:48px auto 0; padding-top:24px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.8rem; color:var(--ink-soft);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-visual{height:400px; margin-top:10px;}
+    .thread-grid{grid-template-columns:1fr;}
+    .story-inner{grid-template-columns:1fr;}
+    .story-art{height:320px;}
+    .footer-inner{grid-template-columns:1fr 1fr 1fr;}
+    .gallery-grid{grid-template-columns:repeat(4,1fr); grid-auto-rows:90px;}
+    .g1,.g5{grid-column:span 2; grid-row:span 2;}
+  }
+  @media (max-width:680px){
+    .hero-logo{height:80px; margin-bottom:20px;}
+    .nav-links{
+      position:fixed; top:73px; left:0; right:0; background:var(--cream);
+      flex-direction:column; align-items:flex-start; gap:0;
+      border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden; transition:max-height 0.3s ease;
+      padding:0 32px;
+    }
+    .nav-links.open{max-height:340px; padding:12px 32px 20px;}
+    .nav-links a{padding:12px 0; width:100%; border-bottom:1px solid var(--line);}
+    .nav-cta{margin-top:14px;}
+    .nav-toggle{display:block;}
+    .hero{padding:40px 20px 40px;}
+    .wrap, .hero-inner, .threads-head, .thread-grid, .lookbook-head, .story-inner, .gallery-head, .gallery-grid, .footer-inner{padding-left:0; padding-right:0;}
+    section.threads, section.story, section.gallery, section.news{padding-left:20px; padding-right:20px;}
+    .lookbook-head{padding:0 20px;}
+    .lookbook-scroll{padding:8px 20px 20px;}
+    .footer-inner{grid-template-columns:1fr 1fr; gap:28px;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .g1,.g5{grid-column:span 2;}
+  }
+
+  .logo-img{height:34px; width:auto; display:block;}
+  .footer-logo-img{height:42px;}
+  .hero-logo{height:104px; width:auto; margin-bottom:26px;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="#top" class="logo"><img src="logo-nav.png" alt="Riya Fashion" class="logo-img"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#threads">Collections</a>
+      <a href="shop.html">Shop</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#story">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="shop.html" class="nav-cta">Shop Now</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <img src="logo-full.png" alt="Riya Fashion" class="hero-logo">
+        <div class="hero-eyebrow eyebrow">RIYA FASHION &mdash; WOMEN'S WEAR, NEW SEASON</div>
+        <h1 class="hero-title">Cotton comfort, made<br>for the woman who does <em>it all</em>.</h1>
+        <p class="hero-sub">From work to weekends to family functions — our best-loved cotton pants, breezy palazzos and printed tops move with you, without ever feeling out of place.</p>
+        <div class="hero-actions">
+          <a href="#threads" class="btn-primary">Explore Collections</a>
+          <a href="#lookbook" class="btn-ghost">View Lookbook</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>12+</strong><span>Years of Craft</span></div>
+          <div><strong>3</strong><span>Signature Lines</span></div>
+          <div><strong>40k+</strong><span>Happy Wardrobes</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="swatch swatch-luxury">
+          <div class="tag">Luxury</div>
+          <div class="name">The Atelier Edit</div>
+        </div>
+        <div class="swatch swatch-casual">
+          <div class="tag">Casual</div>
+          <div class="name">Everyday Ease</div>
+        </div>
+        <div class="swatch swatch-ethnic">
+          <div class="tag">Ethnic</div>
+          <div class="name">Heritage Weaves</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WOVEN DIVIDER (signature element) -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C150,0 150,60 300,30 C450,0 450,60 600,30 C750,0 750,60 900,30 C1050,0 1050,60 1200,30" fill="none" stroke="#1B1F5C" stroke-width="3" opacity="0.9"/>
+      <path d="M0,38 C150,8 150,68 300,38 C450,8 450,68 600,38 C750,8 750,68 900,38 C1050,8 1050,68 1200,38" fill="none" stroke="#FF7A1A" stroke-width="3" opacity="0.9"/>
+      <path d="M0,22 C150,-8 150,52 300,22 C450,-8 450,52 600,22 C750,-8 750,52 900,22 C1050,-8 1050,52 1200,22" fill="none" stroke="#C81E6D" stroke-width="3" opacity="0.9"/>
+    </svg>
+  </div>
+
+  <!-- THREE THREADS -->
+  <section class="threads" id="threads">
+    <div class="threads-head">
+      <div class="eyebrow">One Brand, Three Threads</div>
+      <h2>Wear whichever <em style="font-style:italic; color:var(--marigold);">you</em> shows up today.</h2>
+    </div>
+    <div class="thread-grid">
+      <div class="thread-card thread-luxury">
+        <span class="num">01</span>
+        <span class="tag-pill">Luxury</span>
+        <h3>The Atelier Edit</h3>
+        <p>Tailored blazers, silk separates and evening wear, cut in small batches for a fit that feels made-to-order.</p>
+      </div>
+      <div class="thread-card thread-casual">
+        <span class="num">02</span>
+        <span class="tag-pill">Casual</span>
+        <h3>Everyday Ease</h3>
+        <p>Our most-loved line — soft cotton pants, breezy palazzos and printed tops made for real days, no fuss.</p>
+      </div>
+      <div class="thread-card thread-ethnic">
+        <span class="num">03</span>
+        <span class="tag-pill">Ethnic</span>
+        <h3>Heritage Weaves</h3>
+        <p>Hand-block prints and traditional weaves reworked for modern silhouettes, made with regional artisan clusters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOKBOOK -->
+  <section class="lookbook" id="lookbook">
+    <div class="lookbook-head">
+      <div>
+        <div class="eyebrow">Our Bestsellers</div>
+        <h2>The cotton staples you keep reordering.</h2>
+      </div>
+      <a href="shop.html" class="btn-ghost">View Full Lookbook</a>
+    </div>
+    <div class="lookbook-scroll">
+      <a href="product.html?id=p9" class="look-card look-2">
+        <div class="look-photo"></div>
+        <div class="look-info">
+          <div><div class="cat">Bestseller</div><h4>Blossom Printed Top</h4></div>
+          <div class="price">₹699</div>
+        </div>
+      </a>
+      <a href="product.html?id=p1" class="look-card look-1">
+        <div class="look-photo"></div>
+        <div class="look-info">
+          <div><div class="cat">Bestseller</div><h4>Everyday Cotton Pant</h4></div>
+          <div class="price">₹899</div>
+        </div>
+      </a>
+      <a href="product.html?id=p5" class="look-card look-4">
+        <div class="look-photo"></div>
+        <div class="look-info">
+          <div><div class="cat">Bestseller</div><h4>Breezy Cotton Palazzo</h4></div>
+          <div class="price">₹849</div>
+        </div>
+      </a>
+      <a href="product.html?id=p10" class="look-card look-3">
+        <div class="look-photo"></div>
+        <div class="look-info">
+          <div><div class="cat">Bestseller</div><h4>Meadow Printed Top</h4></div>
+          <div class="price">₹749</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="story-inner">
+      <div class="story-art" aria-hidden="true">
+        <div class="quote">"Simple pieces, worn with confidence — that's the whole idea."</div>
+      </div>
+      <div class="story-text">
+        <div class="eyebrow">About Riya Fashion</div>
+        <h2>Getting dressed shouldn't be complicated.</h2>
+        <p>Riya Fashion keeps it simple: soft cotton fabrics, easy silhouettes, and prints that don't try too hard. Pull on a pair of our palazzos or a printed top and you're ready — no second-guessing.</p>
+        <p>We design every piece around one idea — clothes that fit right the first time, feel effortless all day, and never need explaining.</p>
+        <ul class="story-list">
+          <li><span class="dot"></span>Soft, breathable cotton in every piece</li>
+          <li><span class="dot"></span>Easy silhouettes that fit real, everyday bodies</li>
+          <li><span class="dot"></span>No-fuss styling — ready in minutes, not overthought</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="gallery-head">
+      <div class="eyebrow">Street to Studio</div>
+      <h2>Tagged @riyafashion</h2>
+    </div>
+    <div class="gallery-grid" aria-hidden="true">
+      <div class="g-tile g1"></div>
+      <div class="g-tile g2"></div>
+      <div class="g-tile g3"></div>
+      <div class="g-tile g4"></div>
+      <div class="g-tile g5"></div>
+      <div class="g-tile g6"></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="news" id="news">
+    <div class="news-box">
+      <h2>Get first access to new drops.</h2>
+      <p>Join the list for early access to limited collections, styling notes, and members-only pricing.</p>
+      <form class="news-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+        <input type="email" placeholder="you@email.com" required aria-label="Email address">
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="news-note">No spam. Unsubscribe anytime.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="logo"><img src="logo-nav.png" alt="Riya Fashion" class="logo-img footer-logo-img"></a>
+      <p>Luxury tailoring, everyday casuals and heritage ethnic wear, for women — one house, three threads.</p>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Pinterest">PN</a>
+        <a href="#" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Visit Us</h5>
+      <ul>
+        <li style="color:var(--ink-soft); line-height:1.6;">D1A/268, Gali No. 1,<br>Block D, Sangam Vihar,<br>New Delhi, Delhi 110080,<br>India</li>
+        <li><a href="tel:+919871898878">+91 98718 98878</a></li>
+        <li><a href="mailto:riyaafashion@outlook.com">riyaafashion@outlook.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="shop.html">All Products</a></li>
+        <li><a href="#threads">Luxury</a></li>
+        <li><a href="#threads">Casual</a></li>
+        <li><a href="#threads">Ethnic</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#story">About Us</a></li>
+        <li><a href="#">Artisans</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Riya Fashion. All rights reserved.</span>
+    <span>Made with care, thread by thread.</span>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+
+<style>
+  .whatsapp-float{
+    position:fixed; bottom:24px; right:24px; z-index:999;
+    width:58px; height:58px; border-radius:50%;
+    background:#25D366; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(0,0,0,0.3);
+    transition:transform 0.2s ease;
+  }
+  .whatsapp-float:hover{transform:scale(1.08);}
+  @media (max-width:680px){.whatsapp-float{width:52px; height:52px; bottom:18px; right:18px;}}
+</style>
+<a href="https://wa.me/919871898878?text=Hi%20Riya%20Fashion%2C%20I%20have%20a%20question%20about%20your%20products" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.377 4 15.004c0 2.65.87 5.098 2.35 7.084L4.5 28.5l6.59-2.017a11.94 11.94 0 0 0 4.914 1.02h.001C22.63 27.503 28 22.126 28 15.5 28 8.873 22.63 3.496 16.004 3.496zm0 21.6a9.56 9.56 0 0 1-4.88-1.34l-.35-.208-3.91 1.196 1.24-3.81-.227-.39a9.56 9.56 0 0 1-1.47-5.05c0-5.29 4.31-9.6 9.6-9.6 2.564 0 4.976 1 6.79 2.81a9.53 9.53 0 0 1 2.81 6.79c0 5.29-4.31 9.6-9.6 9.6zm5.26-7.19c-.288-.144-1.703-.84-1.967-.936-.264-.096-.456-.144-.648.144-.192.288-.744.936-.912 1.128-.168.192-.336.216-.624.072-.288-.144-1.215-.448-2.314-1.427-.856-.763-1.434-1.705-1.602-1.993-.168-.288-.018-.444.126-.588.13-.128.288-.336.432-.504.144-.168.192-.288.288-.48.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.137-.234-.562-.472-.486-.648-.495l-.552-.01c-.192 0-.504.072-.768.36-.264.288-1.008.984-1.008 2.4s1.032 2.784 1.176 2.976c.144.192 2.03 3.1 4.92 4.347.687.297 1.223.474 1.641.606.689.219 1.316.188 1.812.114.553-.083 1.703-.696 1.943-1.368.24-.672.24-1.248.168-1.368-.072-.12-.264-.192-.552-.336z"/>
+  </svg>
+</a>
+</body>
+</html>

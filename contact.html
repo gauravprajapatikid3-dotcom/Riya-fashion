@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Contact — RIYA FASHION</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF8EC; --paper:#FFFCF6; --ink:#1B1F5C; --ink-soft:#3A3E7A;
+    --marigold:#FF7A1A; --rani:#C81E6D; --emerald:#0F8B5F; --gold:#D4A017;
+    --line: rgba(27,31,92,0.14); --shadow: 0 20px 50px -20px rgba(27,31,92,0.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--cream); color:var(--ink); font-family:'Sora',sans-serif; line-height:1.6;}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink);}
+  .eyebrow{font-family:'Space Grotesk',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.16em; font-size:0.72rem;}
+  a{color:inherit; text-decoration:none;}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{outline:2px solid var(--ink); outline-offset:3px;}
+
+  header.site{position:sticky; top:0; z-index:100; background:rgba(255,248,236,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:20px 32px; max-width:1220px; margin:0 auto;}
+  .logo{font-family:'Fraunces',serif; font-weight:700; font-size:1.35rem;}
+  .logo span{color:var(--rani); font-style:italic; font-weight:500;}
+  .nav-links{display:flex; gap:36px; align-items:center; font-family:'Space Grotesk',sans-serif; font-size:0.85rem; font-weight:500;}
+  .nav-links a{color:var(--ink-soft); padding:4px 0;}
+  .nav-links a.active, .nav-links a:hover{color:var(--ink);}
+  .nav-cta{background:var(--ink); color:var(--paper); padding:11px 22px; border-radius:100px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.82rem; transition:background 0.2s ease, transform 0.2s ease;}
+  .nav-cta:hover{background:var(--rani); transform:translateY(-1px);}
+  .nav-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .nav-toggle span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0;}
+
+  .page-hero{padding:64px 32px 20px; max-width:1220px; margin:0 auto; text-align:center;}
+  .page-hero .eyebrow{color:var(--rani); justify-content:center; display:flex; gap:10px; margin-bottom:14px;}
+  .page-hero .eyebrow::before, .page-hero .eyebrow::after{content:''; width:28px; height:2px; background:var(--rani); align-self:center;}
+  .page-hero h1{font-size:clamp(2rem,4vw,3rem); margin-bottom:12px;}
+  .page-hero p{color:var(--ink-soft); max-width:520px; margin:0 auto;}
+
+  .contact-wrap{max-width:1220px; margin:0 auto; padding:50px 32px 100px; display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px;}
+
+  .info-card{background:var(--ink); color:#fff; border-radius:28px; padding:44px 34px; position:relative; overflow:hidden;}
+  .info-card::before{content:''; position:absolute; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(255,122,26,0.32), transparent 70%); top:-100px; right:-80px;}
+  .info-card h3{color:#fff; font-size:1.4rem; margin-bottom:24px; position:relative;}
+  .info-row{display:flex; gap:14px; margin-bottom:24px; position:relative;}
+  .info-icon{
+    width:42px; height:42px; border-radius:12px; background:rgba(255,255,255,0.12);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.75rem;
+  }
+  .info-row h5{font-family:'Space Grotesk',sans-serif; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:4px;}
+  .info-row p{color:rgba(255,255,255,0.92); font-size:0.94rem;}
+  .info-row .placeholder{color:rgba(255,255,255,0.5); font-style:italic; font-size:0.86rem;}
+  .social-row{display:flex; gap:12px; position:relative; margin-top:8px;}
+  .social-row a{width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; font-size:0.75rem; transition:background 0.2s ease;}
+  .social-row a:hover{background:rgba(255,255,255,0.15);}
+
+  .form-card{background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:44px;}
+  .form-card h3{margin-bottom:8px;}
+  .form-card > p{color:var(--ink-soft); margin-bottom:28px; font-size:0.94rem;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
+  .field{display:flex; flex-direction:column; gap:8px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-family:'Space Grotesk',sans-serif; font-size:0.74rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft);}
+  .field input, .field textarea, .field select{
+    border:1.5px solid var(--line); border-radius:12px; padding:13px 16px;
+    font-family:'Sora',sans-serif; font-size:0.94rem; background:#fff; color:var(--ink);
+  }
+  .field textarea{resize:vertical; min-height:120px;}
+  .submit-btn{
+    background:var(--marigold); color:#fff; border:none; padding:16px 32px; border-radius:100px;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.9rem; cursor:pointer;
+    box-shadow:0 14px 30px -12px rgba(255,122,26,0.55); transition:transform 0.2s ease; margin-top:6px;
+  }
+  .submit-btn:hover{transform:translateY(-2px);}
+  .confirm-note{margin-top:16px; font-size:0.86rem; color:var(--emerald); font-weight:600; display:none;}
+
+  .map-card{max-width:1220px; margin:0 auto 100px; padding:0 32px;}
+  .map-visual{
+    height:280px; border-radius:26px; position:relative; overflow:hidden;
+    background:linear-gradient(150deg, var(--rani) 0%, var(--marigold) 50%, var(--emerald) 100%);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+  }
+  .map-visual::before{content:''; position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.22) 1.5px, transparent 1.5px); background-size:18px 18px;}
+  .map-visual .pin{position:relative; color:#fff;}
+  .map-visual .pin h4{font-family:'Fraunces',serif; font-size:1.3rem; margin-bottom:6px;}
+  .map-visual .pin p{font-size:0.86rem; color:rgba(255,255,255,0.85); max-width:340px;}
+
+  footer{background:var(--paper); border-top:1px solid var(--line); padding:56px 32px 28px;}
+  .footer-inner{max-width:1220px; margin:0 auto; display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr 1fr; gap:32px;}
+  .footer-brand .logo{margin-bottom:14px; display:block;}
+  .footer-brand p{color:var(--ink-soft); font-size:0.9rem; max-width:260px;}
+  .footer-col h5{font-family:'Space Grotesk',sans-serif; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px; color:var(--ink-soft);}
+  .footer-col ul{list-style:none; display:grid; gap:9px;}
+  .footer-col a{font-size:0.9rem;}
+  .footer-col a:hover{color:var(--rani);}
+  .footer-bottom{max-width:1220px; margin:40px auto 0; padding-top:20px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:0.78rem; color:var(--ink-soft);}
+
+  @media (max-width:900px){
+    .contact-wrap{grid-template-columns:1fr; gap:32px;}
+    .footer-inner{grid-template-columns:1fr 1fr 1fr;}
+  }
+  @media (max-width:680px){
+    .nav-links{position:fixed; top:73px; left:0; right:0; background:var(--cream); flex-direction:column; align-items:flex-start; border-bottom:1px solid var(--line); max-height:0; overflow:hidden; transition:max-height 0.3s ease; padding:0 32px;}
+    .nav-links.open{max-height:340px; padding:12px 32px 20px;}
+    .nav-links a{padding:12px 0; width:100%; border-bottom:1px solid var(--line);}
+    .nav-cta{margin-top:14px;}
+    .nav-toggle{display:block;}
+    .contact-wrap{padding:36px 20px 60px;}
+    .form-card{padding:28px 22px;}
+    .info-card{padding:32px 24px;}
+    .field-row{grid-template-columns:1fr;}
+    .map-card{padding:0 20px;}
+    .footer-inner{grid-template-columns:1fr 1fr; padding:0;}
+  }
+
+  .logo-img{height:34px; width:auto; display:block;}
+  .footer-logo-img{height:42px;}
+  .page-hero-logo{height:70px; width:auto; margin:0 auto 18px; display:block;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="logo-nav.png" alt="Riya Fashion" class="logo-img"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#threads">Collections</a>
+      <a href="shop.html">Shop</a>
+      <a href="index.html#lookbook">Lookbook</a>
+      <a href="index.html#story">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="shop.html" class="nav-cta">Shop Now</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <img src="logo-full.png" alt="Riya Fashion" class="page-hero-logo">
+  <div class="eyebrow">Get In Touch</div>
+  <h1>We'd love to hear from you.</h1>
+  <p>Questions about sizing, an order, or just want to say hello — reach out below.</p>
+</section>
+
+<div class="contact-wrap">
+  <div class="info-card">
+    <h3>Contact Details</h3>
+    <div class="info-row">
+      <div class="info-icon">📍</div>
+      <div>
+        <h5>Store Address</h5>
+        <p>D1A/268, Gali No. 1, Block D,<br>Sangam Vihar, New Delhi,<br>Delhi 110080, India</p>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-icon">📞</div>
+      <div>
+        <h5>Phone</h5>
+        <p><a href="tel:+919871898878">+91 98718 98878</a></p>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-icon">✉️</div>
+      <div>
+        <h5>Email</h5>
+        <p><a href="mailto:riyaafashion@outlook.com">riyaafashion@outlook.com</a></p>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-icon">🕐</div>
+      <div>
+        <h5>Store Hours</h5>
+        <p>9:00 AM – 7:00 PM, Daily</p>
+      </div>
+    </div>
+    <div class="social-row">
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="Pinterest">PN</a>
+      <a href="#" aria-label="Facebook">FB</a>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <h3>Send Us a Message</h3>
+    <p>Fill this out and we'll get back to you as soon as we can.</p>
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="field-row">
+        <div class="field">
+          <label for="fname">Full Name</label>
+          <input type="text" id="fname" name="name" required>
+        </div>
+        <div class="field">
+          <label for="femail">Email</label>
+          <input type="email" id="femail" name="email" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field full">
+          <label for="fsubject">Subject</label>
+          <select id="fsubject" name="subject">
+            <option>General Enquiry</option>
+            <option>Order Status</option>
+            <option>Sizing Help</option>
+            <option>Returns &amp; Exchanges</option>
+            <option>Wholesale / Bulk Order</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field full">
+          <label for="fmessage">Message</label>
+          <textarea id="fmessage" name="message" required></textarea>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+      <div class="confirm-note" id="confirmNote">Thanks — your message has been sent. We'll get back to you soon.</div>
+      <div class="confirm-note" id="errorNote" style="color:var(--rani);">Something went wrong. Please try again, or message us on WhatsApp instead.</div>
+    </form>
+  </div>
+</div>
+
+<div class="map-card">
+  <div class="map-visual">
+    <div class="pin">
+      <h4>Visit Our Store</h4>
+      <p>D1A/268, Gali No. 1, Block D, Sangam Vihar, New Delhi, Delhi 110080</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><img src="logo-nav.png" alt="Riya Fashion" class="logo-img footer-logo-img"></a>
+      <p>Luxury tailoring, everyday casuals and heritage ethnic wear, for women — one house, three threads.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Visit Us</h5>
+      <ul>
+        <li style="color:var(--ink-soft); line-height:1.6;">D1A/268, Gali No. 1,<br>Block D, Sangam Vihar,<br>New Delhi, Delhi 110080,<br>India</li>
+        <li><a href="tel:+919871898878">+91 98718 98878</a></li>
+        <li><a href="mailto:riyaafashion@outlook.com">riyaafashion@outlook.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="shop.html">All Products</a></li>
+        <li><a href="index.html#threads">Luxury</a></li>
+        <li><a href="index.html#threads">Casual</a></li>
+        <li><a href="index.html#threads">Ethnic</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="index.html#story">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Riya Fashion. All rights reserved.</span>
+    <span>Made with care, thread by thread.</span>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const submitBtn = document.getElementById('submitBtn');
+    const confirmNote = document.getElementById('confirmNote');
+    const errorNote = document.getElementById('errorNote');
+    confirmNote.style.display = 'none';
+    errorNote.style.display = 'none';
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        confirmNote.style.display = 'block';
+        form.reset();
+      } else {
+        errorNote.style.display = 'block';
+      }
+    } catch (err) {
+      errorNote.style.display = 'block';
+    }
+    submitBtn.textContent = 'Send Message';
+    submitBtn.disabled = false;
+  });
+</script>
+
+
+<style>
+  .whatsapp-float{
+    position:fixed; bottom:24px; right:24px; z-index:999;
+    width:58px; height:58px; border-radius:50%;
+    background:#25D366; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(0,0,0,0.3);
+    transition:transform 0.2s ease;
+  }
+  .whatsapp-float:hover{transform:scale(1.08);}
+  @media (max-width:680px){.whatsapp-float{width:52px; height:52px; bottom:18px; right:18px;}}
+</style>
+<a href="https://wa.me/919871898878?text=Hi%20Riya%20Fashion%2C%20I%20have%20a%20question%20about%20your%20products" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.377 4 15.004c0 2.65.87 5.098 2.35 7.084L4.5 28.5l6.59-2.017a11.94 11.94 0 0 0 4.914 1.02h.001C22.63 27.503 28 22.126 28 15.5 28 8.873 22.63 3.496 16.004 3.496zm0 21.6a9.56 9.56 0 0 1-4.88-1.34l-.35-.208-3.91 1.196 1.24-3.81-.227-.39a9.56 9.56 0 0 1-1.47-5.05c0-5.29 4.31-9.6 9.6-9.6 2.564 0 4.976 1 6.79 2.81a9.53 9.53 0 0 1 2.81 6.79c0 5.29-4.31 9.6-9.6 9.6zm5.26-7.19c-.288-.144-1.703-.84-1.967-.936-.264-.096-.456-.144-.648.144-.192.288-.744.936-.912 1.128-.168.192-.336.216-.624.072-.288-.144-1.215-.448-2.314-1.427-.856-.763-1.434-1.705-1.602-1.993-.168-.288-.018-.444.126-.588.13-.128.288-.336.432-.504.144-.168.192-.288.288-.48.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.137-.234-.562-.472-.486-.648-.495l-.552-.01c-.192 0-.504.072-.768.36-.264.288-1.008.984-1.008 2.4s1.032 2.784 1.176 2.976c.144.192 2.03 3.1 4.92 4.347.687.297 1.223.474 1.641.606.689.219 1.316.188 1.812.114.553-.083 1.703-.696 1.943-1.368.24-.672.24-1.248.168-1.368-.072-.12-.264-.192-.552-.336z"/>
+  </svg>
+</a>
+</body>
+</html>
